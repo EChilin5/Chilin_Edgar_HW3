@@ -157,16 +157,18 @@ public class Question2 {
         int columB = 3;//1 + r.nextInt(3);
         A = new float[row1][colum];
         B = new float[colum][columB];
-
+        result = new float[colum][columB];
+        result2 = new float[colum][columB];
+        result3 = new float[colum][columB];
+        System.out.println("Matrix A number of rows " + A.length + " number of columns " + A[0].length);
+        System.out.println("Matrix B number of rows " + B.length + " number of columns " + B[0].length);
+        System.out.println("Matrix C number of rows " + result.length + " number of columns " + result[0].length);
         setUp(A);
         setUp(B);
         int sum = 0;
         print(A);
         print(B);
 
-        result = new float[colum][columB];
-        result2 = new float[colum][columB];
-        result3 = new float[colum][columB];
         /////////// Main
         Instant start = Instant.now();
     /*    for (int i = 0; i < A[0].length; i++) {
