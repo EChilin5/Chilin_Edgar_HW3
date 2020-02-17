@@ -152,14 +152,17 @@ public class Question2 {
 
     public static void main(String[] args) throws InterruptedException {
         Random r = new Random();
-        int row1 =5;// 1+r.nextInt(3);
-        int colum =4;// 1 +r.nextInt(3);
-        int columB = 3;//1 + r.nextInt(3);
-        A = new float[row1][colum];
-        B = new float[colum][columB];
-        result = new float[colum][columB];
-        result2 = new float[colum][columB];
-        result3 = new float[colum][columB];
+        int row1 = 2+r.nextInt(3);
+        int colum = 2 +r.nextInt(3);
+        int columB = 2 + r.nextInt(3);
+        int  x = row1;
+        int y = colum;
+        int ez = columB;
+        A = new float[x][y];
+        B = new float[y][ez];
+        result = new float[y][ez];
+        result2 = new float[y][ez];
+        result3 = new float[y][ez];
         System.out.println("Matrix A number of rows " + A.length + " number of columns " + A[0].length);
         System.out.println("Matrix B number of rows " + B.length + " number of columns " + B[0].length);
         System.out.println("Matrix C number of rows " + result.length + " number of columns " + result[0].length);
@@ -171,14 +174,14 @@ public class Question2 {
 
         /////////// Main
         Instant start = Instant.now();
-    /*    for (int i = 0; i < A[0].length; i++) {
+        for (int i = 0; i < A[0].length; i++) {
 
             for (int j = 0; j < B[0].length; j++) {
                 for (int k = 0; k < A[0].length; k++) {
                     result2[i][j] += A[i][k] * B[k][j];
                 }
             }
-        }*/
+        }
         Instant end = Instant.now();
         long timeElapsed = Duration.between(start, end).getNano();
         System.out.println(" name: Main " + " time: " + timeElapsed);
@@ -186,7 +189,7 @@ public class Question2 {
         print(result2);
 
         // Columns
-        threadColumn = new Thread[colum];
+        threadColumn = new Thread[y];
         int z = 0;
         for (int i = 0; i < A[0].length; i++) {
             z++;
@@ -200,7 +203,7 @@ public class Question2 {
 
 
         // threads created based on cells
-        int val = colum * columB;
+        int val = y * ez;
         threadCell = new Thread[val];
         int tcount = 0;
         int cellCount = 0;
