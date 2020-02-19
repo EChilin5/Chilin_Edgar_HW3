@@ -4,8 +4,8 @@ import java.util.concurrent.BlockingQueue;
 
 public class Question1 {
     private static int size;
-    private static BlockingQueue<String> queue = new ArrayBlockingQueue<>(16);
-    private static BlockingQueue<String> queue2 = new ArrayBlockingQueue<>(16);
+    private static BlockingQueue<String> queue;
+    private static BlockingQueue<String> queue2;
     private static boolean runDestroy;
     private static int count1, count2, count3, count4;
     private static Random r = new Random();
@@ -176,11 +176,13 @@ public class Question1 {
     // ---------------------------------------------------------------------------------------
 
     public static void main(String[] args) {
-        count1 = r.nextInt(4);
-        count2 = r.nextInt(4);
-        count3 = r.nextInt(4);
-        count4 = r.nextInt(4);
+        count1 = r.nextInt(100);
+        count2 = r.nextInt(100);
+        count3 = r.nextInt(100);
+        count4 = r.nextInt(100);
         size = count1 + count2 + count3 + count4;
+         queue = new ArrayBlockingQueue<>(size);
+         queue2 =  new ArrayBlockingQueue<>(size);
         runDestroy = true;
 
         try {
